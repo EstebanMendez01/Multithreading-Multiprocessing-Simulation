@@ -1,0 +1,33 @@
+One
+Two
+Three
+One
+Two
+Three
+One
+Two
+Three
+Finished counting to Three, 3 times, in 6.037003040313721
+One
+Two
+Three
+One
+Two
+Three
+One
+Two
+Three
+Finished counting to Three, 3 times, in 6.0471274852752686
+One
+Two
+Three
+One
+Two
+Three
+One
+Two
+Three
+Finished counting to Three, 3 times, in 6.0408642292022705
+[<Thread(Thread-1, stopped 21320)>, <Thread(Thread-2, stopped 10340)>, <Thread(Thread-3, stopped 31232)>]
+Multithreading done!
+Completed in 18.13003659248352

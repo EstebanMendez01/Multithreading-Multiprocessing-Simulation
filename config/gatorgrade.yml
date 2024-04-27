@@ -1,0 +1,158 @@
+setup: |
+  echo "Did you add your own project dependency installation step?"
+  echo "Did you add checks for your project?"
+  echo "Done installing project dependencies!"
+---
+
+# Reminder for ^^^:
+# All commands executed in the setup block are done in a
+# one-by-one fashion from the current working directory. This means
+# that there is no history associated with running the commands and
+# thus multiple commands must be run in a single chain if side effects are
+# important to ensuring the proper setup of the project
+
+# perform checks on a file
+- project/multithread.py:
+    - description: Ensure that the multithread.py file exists in project/
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for multithread.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in multithread.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+    - description: Create a sufficient number of single-line comments in multithread.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 4
+        exact: false
+
+# perform checks on a file
+- project/multiprocess.py:
+    - description: Ensure that the multiprocess.py file exists in project/
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for multiprocess.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in multiprocess.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 3
+        exact: false
+    - description: Create a sufficient number of single-line comments in multiprocess.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 4
+        exact: false
+
+# run a command
+- description: Run the project/multithread.py program and ensure it does not crash
+  command: python project/multithread.py
+
+# run a command
+- description: Run the project/multiprocess.py program and ensure it does not crash
+  command: python project/multiprocess.py
+
+# # run a command
+# - description: Run the project/menu.py program and ensure it does not crash
+#   command: python project/menu.py < 1
+
+# perform checks on a file
+- writing/proposal.md:
+    - description: Ensure that the proposal.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the proposal
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the proposal.md file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Write a minimum of 500 meaningful words in the proposal.md file in the writing/ directory
+      check: CountFileWords
+      options:
+        count: 500
+        exact: false
+
+# perform checks on a file
+- writing/update.md:
+    - description: Ensure that the update.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the update
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the update.md file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Write a minimum of 200 meaningful words in the update.md file in the writing/ directory
+      check: CountFileWords
+      options:
+        count: 200
+        exact: false
+
+# perform checks on a file
+- writing/report.md:
+    - description: Ensure that the report.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the report
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the report.md file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Write a minimum of 500 meaningful words in the report.md file in the writing/ directory
+      check: CountFileWords
+      options:
+        count: 500
+        exact: false
+
+# perform checks on a file
+- writing/demonstration.md:
+    - description: Ensure that the demonstration.md file exists in the writing/ directory
+      check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers, and rewrite comments for the demonstration
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
+    - description: Delete the 'Add Your Name Here' prompt in the demonstration.md file
+      check: MatchFileFragment
+      options:
+        fragment: "Add Your Name Here"
+        count: 0
+        exact: true
+    - description: Write a minimum of 100 meaningful words in the demonstration.md file in the writing/ directory
+      check: CountFileWords
+      options:
+        count: 100
+        exact: false
